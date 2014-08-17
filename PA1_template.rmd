@@ -8,6 +8,12 @@ The variables included in this dataset are:
 *  interval: Identifier for the 5-minute interval in which measurement was taken
 The dataset (activity.csv) is stored in a comma-separated-value (CSV) file and there are a total of 17,568 observations in this dataset.
 
+============================================================================================
+**PLEASE NOTE THAT I AM NOT ABLE TO GET MY GRAPHS TO LOAD INTO THE MD FILE AND UNABLE TO GET
+ASSISTANCE WITH TA UNTIL PROJECT CLOSES!**
+============================================================================================
+
+
 ## Loading and Preprocessing the Data  
 ============================================================================================
 
@@ -46,7 +52,7 @@ Show First 10 Rows of Data.
 ============================================================================================
 For this part of the assignment, you can ignore the missing values in the dataset.
 
-1.  Make a histogram of the total number of steps taken each day.
+1.  Make a histogram of the total number of steps taken each day. (GRAPH PLOT1.PNG)
 '''{r histogram}
         StepsPerDay     <-      aggregate(steps ~ date, data = activity, FUN = sum)
         hist(StepsPerDay$steps, breaks=61, main="Total Number of Steps Taken Each Day", xlab="Daily Steps Total")
@@ -66,7 +72,7 @@ For this part of the assignment, you can ignore the missing values in the datase
 
 ## What is the Average Daily Activity Pattern?  
 ============================================================================================
-1.  Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
+1.  Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)  (GRAPH PLOT2.PNG)
 
 '''{r timeseriesplot}
         avgStepsPerInterval  <-      aggregate(activity$steps, by=list(activity$interval), FUN=mean, na.rm=TRUE);
@@ -113,7 +119,7 @@ Note that there are a number of days/intervals where there are missing values (c
 '''
 
 
-4.  Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
+4.  Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?  (GRAPH PLOT3.PNG)
 '''{r histogram}
         StepsPerDay     <-      aggregate(steps ~ date, data = activity, FUN = sum)
         hist(StepsPerDay$steps, breaks=61, main="Total Number of Steps Taken Each Day", xlab="Daily Steps Total")
@@ -149,7 +155,7 @@ Use the dataset with the filled-in missing values for this part.
 ```
   
 
-2.  Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).
+2.  Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).  (GRAPH PLOT4.PNG)
 '''{r fig.width = 10}
         avgSteps        <-      ddply(newActivity,
                                           .(interval, dayType),
